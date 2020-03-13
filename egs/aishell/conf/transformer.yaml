@@ -1,11 +1,11 @@
 data:
   name: aishell
-  vocab: egs/aishell/data/vocab
+  vocab: /home/ubuntu/Data/asr/data_aishell/wav/vocab
   batch_size: 16
   text: character
-  train: egs/aishell/data/train
-  test: egs/aishell/data/test
-  dev: egs/aishell/data/dev
+  train: /home/ubuntu/Data/asr/data_aishell/wav/train
+  test: /home/ubuntu/Data/asr/data_aishell/wav/test
+  dev: /home/ubuntu/Data/asr/data_aishell/wav/dev
   short_first: False
   num_mel_bins: 40
   apply_cmvn: False
@@ -50,7 +50,7 @@ train:
   shuffle: True
   lr: 1.0
   clip_grad: 5
-  epochs: 5
+  epochs: 100
   accum_steps: 1
   grad_noise: False
   load_model: False

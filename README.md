@@ -32,10 +32,13 @@ Torchaudio >= 0.3.0
 - Mixed Precision Training based [apex](https://github.com/NVIDIA/apex)
 
 ## To Do
-- LM Shollow Fusion
+- LM Shallow Fusion
 
 # Prepare
-vocab
+vocab  
+只使用id即可，词表不需要加<blank>和<unk>等占位符。
+与配置文件`transformer.yaml`的关系是：vocab_size＝词表+3。
+
 ```
 # character id/frequency
 你 1000
@@ -58,13 +61,21 @@ if you want to compute features online, please make sure you have a wav.scp file
 ```
 # wav.scp
 # id path
-1 /data/aishell/wav/1.wav
+BAC009S0764W0139 /data/aishell/wav/BAC009S0764W0139.wav
+```
+
+## preprocess Aishell
+```
+python preprocess_scp_and_character.py
 ```
 
 ## Train
+Loss降到0.2及以下。
+
 - Single GPU
+
 ```python
-python rnn.py -c egs/aishell/conf/transformer.yaml
+python run.py -c egs/aishell/conf/transformer.yaml
 ```
 - Multi GPU Training based DataParallel
 ```python
