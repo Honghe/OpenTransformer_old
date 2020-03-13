@@ -2,7 +2,7 @@
 
 This is a speech transformer model for end-to-end speech recognition.
 
-# Requirements
+## Requirements
 Pytorch >= 1.2.0
 
 Torchaudio >= 0.3.0
@@ -34,17 +34,17 @@ Torchaudio >= 0.3.0
 ## To Do
 - LM Shallow Fusion
 
-# Prepare
+## Prepare
 vocab  
 只使用id即可，词表不需要加<blank>和<unk>等占位符。
 与配置文件`transformer.yaml`的关系是：vocab_size＝词表+3。
 
+character idx
 ```
-# character id/frequency
-你 1000
-很 500
-...
+我 3
+你 4
 ```
+
 character
 ```
 BAC009S0764W0139 国 家 统 计 局 的 数 据 显 示
@@ -64,7 +64,7 @@ if you want to compute features online, please make sure you have a wav.scp file
 BAC009S0764W0139 /data/aishell/wav/BAC009S0764W0139.wav
 ```
 
-## preprocess Aishell
+## Preprocess Aishell
 ```
 python preprocess_scp_and_character.py
 ```
