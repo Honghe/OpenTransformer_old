@@ -1,7 +1,7 @@
 # OpenTransformer
 
-This is a speech transformer model for end-to-end speech recognition.
-
+This is a speech transformer model for end-to-end speech recognition.  
+Fork from https://github.com/ZhengkunTian/OpenTransformer
 ## Requirements
 Pytorch >= 1.2.0
 
@@ -70,7 +70,7 @@ python preprocess_scp_and_character.py
 ```
 
 ## Train
-Loss降到0.2及以下。
+Loss降到0.2及以下。Aishell数据集，训练60轮以上。
 
 - Single GPU
 
@@ -89,6 +89,11 @@ OMP_NUM_THREADS=1 python -m torch.distributed.launch --nproc_per_node=2 run.py -
 ## Eval
 ```python
 python eval.py -m model.pt
+```
+
+## Recognition wav file
+```
+python recog.py -m model.pt -f file.wav
 ```
 
 ## Experiments
